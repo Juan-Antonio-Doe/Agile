@@ -14,7 +14,7 @@ public class GameArea : MonoBehaviour {
     [field: SerializeField] public Rect _area { get; private set; }
 
     [Header("Variables")]
-    [SerializeField] private Vector2 size;
+    [SerializeField, HideInInspector] private Vector2 _size;
 
     [field: SerializeField] private Color gizmoColor { get; set; } = Color.green;
 
@@ -24,20 +24,25 @@ public class GameArea : MonoBehaviour {
         set { _area = value; }
     }*/
 
+    public Vector2 Size {
+        get { return _area.size; }
+        set {
+            _size = value;
+            _area = new Rect(value.x * -0.5f, value.y * -0.5f, value.x, value.y);
+        }
+    }
+
     private void OnValidate() {
-        SetArea(size);
+        //SetArea(size);
+        Size = _size;
     }
 
-    private void Awake() {
-        SetArea(size);
-    }
-
-    public void SetArea(Vector2 size) {
+    /*public void SetArea(Vector2 size) {
         //_area = new Rect(0, 0, size.x, size.y);
         //_area = new Rect(Vector2.zero, size);
         _area = new Rect(size.x * -0.5f, size.y * -0.5f, size.x, size.y);
 
-    }
+    }*/
 
     private void OnDrawGizmos() {
         if (Selection.activeGameObject != transform.gameObject)
@@ -45,6 +50,19 @@ public class GameArea : MonoBehaviour {
 
         //Gizmos.matrix = transform.localToWorldMatrix; // Asignamos el gizmo a la posición del objeto.
         Gizmos.color = gizmoColor;
-        Gizmos.DrawWireCube(transform.position, size);
+        Gizmos.DrawWireCube(transform.position, _area.size);
+    }
+
+    /*private void Update() {
+        Debug.Log(size);
+        Debug.Log(_area.size);
+    }*/
+
+    public Vector3 GetRandomPosition() {
+        Vector3 randomPosition = Vector3.zero;
+        randomPosition.x = Random.Range(-_size.x / 2, _size.x / 2);
+        randomPosition.y = Random.Range(-_size.x / 2, _size.x / 2);
+        randomPosition = transform.TransformPoint(randomPosition);
+        return randomPosition;
     }
 }
