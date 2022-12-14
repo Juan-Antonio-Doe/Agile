@@ -335,6 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <type>k__BackingField: 0
+  <_audioSource>k__BackingField: {fileID: 0}
+  <_renderer>k__BackingField: {fileID: 0}
+  <_collider2D>k__BackingField: {fileID: 0}
 --- !u!1 &203810434
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <type>k__BackingField: 0
+  <_audioSource>k__BackingField: {fileID: 0}
+  <_renderer>k__BackingField: {fileID: 0}
+  <_collider2D>k__BackingField: {fileID: 0}
 --- !u!1 &399561830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1052,7 @@ GameObject:
   - component: {fileID: 1102918169}
   - component: {fileID: 1102918173}
   - component: {fileID: 1102918172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1120,6 +1126,7 @@ Transform:
   - {fileID: 1942504748}
   - {fileID: 1815994661}
   - {fileID: 1235530340}
+  - {fileID: 1619241052}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1159,6 +1166,7 @@ MonoBehaviour:
   <_rigidbody2D>k__BackingField: {fileID: 1102918172}
   <thrustMultiplier>k__BackingField: 10
   <steerMultiplier>k__BackingField: 5
+  _weapon: {fileID: 0}
 --- !u!114 &1102918171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,7 +1277,7 @@ GameObject:
   - component: {fileID: 1235530340}
   - component: {fileID: 1235530339}
   - component: {fileID: 1235530338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: engineFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,6 +1515,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1619241051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1619241052}
+  - component: {fileID: 1619241053}
+  m_Layer: 8
+  m_Name: RPG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1619241052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619241051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1102918168}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619241053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619241051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528e21a79e21e754b9607d31c345e056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <_projectile>k__BackingField: {fileID: 6627656440090015581, guid: 74a3860fa97819d48985026f57f806fd, type: 3}
 --- !u!1 &1815994660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815994661}
   - component: {fileID: 1815994662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: projectile (Right)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1531,14 +1584,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815994660}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710707, w: 0.7071066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1102918168}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1815994662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1685,7 +1738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1942504748}
   - component: {fileID: 1942504747}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: projectile (Left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,14 +1804,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942504746}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710707, w: 0.7071066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1102918168}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1965969413 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1294890822914675120, guid: 079720fcd0b274744a910a04238cc629, type: 3}
