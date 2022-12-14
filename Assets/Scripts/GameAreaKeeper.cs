@@ -7,17 +7,21 @@ using UnityEngine;
  * Looping the object transform across a rectangle area.
  */
 
-[AddComponentMenu("Scripts/ESI/Transform Looper")]
-public class TransformLooper : MonoBehaviour {
+[AddComponentMenu("Scripts/ESI/Game Area Keeper")]
+public class GameAreaKeeper : MonoBehaviour {
 
     //[field: SerializeField] public Rect area { get; private set; } // The area to loop the object transform.
     [field: SerializeField] public GameArea gameArea { get; private set; }
 
     [SerializeField] private Vector2 areaSpacePosition = Vector2.zero; // The area to loop the object transform.
 
+    private void Start() {
+        if (!gameArea)
+            gameArea = GameArea.Main;
+    }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         //position = transform.position;  // Get the current position.
 
         // InverseTransformPoint: Transform a point from world space into local space.
